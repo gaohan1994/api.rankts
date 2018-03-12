@@ -1,4 +1,4 @@
-import BaseClass from "./base";
+import BaseClass from "../base";
 import { index } from "../types/index";
 
 class IndexC extends BaseClass {

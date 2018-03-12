@@ -1,3 +1,9 @@
+/**
+ * 基类公共方法定义在该类
+ * Creates an instance of BaseClass.
+ * @memberof BaseClass
+ */
+
 class BaseClass {
 
     constructor () {}

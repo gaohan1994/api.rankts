@@ -1,4 +1,4 @@
-import BaseControl from "./base";
+import BaseControl from "../base";
 import { index } from "../types/index";
 import { } from "../models";
 import { } from "../service/demo";

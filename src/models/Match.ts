@@ -5,19 +5,24 @@ import * as mongoose from "mongoose";
 /**
  * name : 用户姓名
  * class: 用户身份
- * 0  : 平民
- * 10 : 狼人
- * 11 : 狼王
- * 20 : 预言家
- * 21 : 女巫
- * 22 : 猎人
- * 23 : 白痴
- * 24 : 守卫
+ * 0    : 平民
+ * 10   : 狼人
+ * 11   : 狼王
+ * 20   : 预言家
+ * 21   : 女巫
+ * 22   : 猎人
+ * 23   : 白痴
+ * 24   : 守卫
+ * score: 总分
+ * win: 该局游戏是否胜利
+ * 0    : 胜利
+ * 1    : 失败
  * @type {Array<Player>}
  */
 export type Player = {
-    name  : string,
-    class : number
+    name    : string,
+    class   : number,
+    win     : boolean,
 };
 
 /**
@@ -36,10 +41,15 @@ export type MatchModel = mongoose.Document & {
 };
 
 const MatchSchema = new mongoose.Schema({
-  date    : Date,
-  players : Array,
-  winner  : Number
+    date    : Date,
+    players : [{
+        name    : String,
+        class   : Number,
+        win     : Boolean,
+    }],
+    winner  : Number
 });
 
 const Match = mongoose.model("Match", MatchSchema);
+
 export default Match;

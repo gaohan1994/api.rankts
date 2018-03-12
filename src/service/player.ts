@@ -1,12 +1,12 @@
 import Match from "../models/Match";
-import BaseService from "./base";
+import Base from "../base";
 
-class Player extends BaseService {
+class Player extends Base {
 
     public getAllPlayers = async (): Promise<object> => {
-        const query = "";
+        const query = {};
         const result = await Match.find();
-        return {res: result};
+        return result;
     }
 }
 
