@@ -1,6 +1,6 @@
 // import bcrypt from "bcrypt-nodejs";
-import crypto from "crypto";
-import mongoose from "mongoose";
+// import crypto from "crypto";
+import * as mongoose from "mongoose";
 
 /**
  * name : 用户姓名

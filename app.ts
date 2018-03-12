@@ -1,8 +1,12 @@
 import * as Koa from "koa";
 import * as bodyParser from "koa-bodyparser";
 import routes from "./controller";
+import * as mongoose from "mongoose";
+import config from "./src/config/db";
 
 const app = new Koa();
+
+mongoose.connect(config.DB.mongo.uri);
 
 app.use(async (ctx, next) => {
     console.log(`Process ${ctx.request.method} ${ctx.request.url}...`);
@@ -19,3 +23,5 @@ app.use(routes.routes());
 app.listen(3000);
 
 console.log("server run at port 3000");
+
+export default app;
