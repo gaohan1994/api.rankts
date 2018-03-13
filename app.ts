@@ -1,6 +1,6 @@
 import * as Koa from "koa";
 import * as bodyParser from "koa-bodyparser";
-import routes from "./controller";
+import routes from "./src/router/index";
 import * as mongoose from "mongoose";
 import config from "./src/config/db";
 

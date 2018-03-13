@@ -19,11 +19,6 @@ import * as mongoose from "mongoose";
  * 1    : 失败
  * @type {Array<Player>}
  */
-export type Player = {
-    name    : string,
-    class   : number,
-    win     : boolean,
-};
 
 /**
  * Date   : 比赛日期
@@ -34,11 +29,6 @@ export type Player = {
  * 2: 第三方获胜
  * @type {Array<Player>}
  */
-export type MatchModel = mongoose.Document & {
-    date    : Date,
-    players : Array<Player>,
-    winner  : number
-};
 
 const MatchSchema = new mongoose.Schema({
     date    : Date,

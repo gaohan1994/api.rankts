@@ -1,4 +1,4 @@
-import BaseServive from "./base";
+import BaseServive from "../base";
 import { index } from "../types/index";
 import { } from "../models";
 import { } from "../service/demo";
