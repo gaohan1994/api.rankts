@@ -18,7 +18,9 @@ app.use(async (ctx, next) => {
 
 app.use(bodyParser());
 
-app.use(routes.routes());
+app
+    .use(routes.routes())
+    .use(routes.allowedMethods());
 
 app.listen(3000);
 

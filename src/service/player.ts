@@ -8,6 +8,13 @@ class Player extends Base {
         const result = await Match.find();
         return result;
     }
+
+    /**
+     * findPlayerById
+     */
+    public findPlayerById = async(): Promise<object> => {
+        return {};
+    }
 }
 
 export default new Player();
