@@ -30,11 +30,15 @@ class MatchService extends BaseServive {
     }
 
     /**
-     * updateOneMatch
+     * updateOneMatchById
      */
-    public updateOneMatch = async (id: string, data: MatchType): Promise<Object> => {
-        const match = await Match.findById(id);
-        return {};
+    public updateOneMatchById = async (id: string, data: MatchType): Promise<Object> => {
+        const result = await Match.findByIdAndUpdate(id, { $set: data });
+        if (result) {
+            return { code: "updateSuccess" };
+        } else {
+            return { code: "updateFail" };
+        }
     }
 
     /**

@@ -16,7 +16,7 @@ class MatchController extends BaseControl {
      * getOneMatch
      * params: id 比赛场次的id
      */
-    public getOneMatch = async (ctx: any, next: any): Promise<void> => {
+    public getOneMatchById = async (ctx: any, next: any): Promise<void> => {
         const id = ctx.params.id;
         const result = await MatchService.findOneMatch(id);
         ctx.response.body = { res: result };
@@ -39,7 +39,7 @@ class MatchController extends BaseControl {
     /**
      * deleteOneMatch
      */
-    public deleteOneMatch = async(ctx: any, next: any): Promise<void> => {
+    public deleteOneMatchById = async(ctx: any, next: any): Promise<void> => {
         const id = ctx.params.id;
         const result = await MatchService.deleteOneMatch(id);
         if (result) {
@@ -47,6 +47,17 @@ class MatchController extends BaseControl {
         } else {
             ctx.response.body = {code: "deleteFail"};
         }
+    }
+
+    /**
+     * updateMatchById
+     */
+    public updateMatchById = async(ctx: any, next: any): Promise<void> => {
+        const params = ctx.request.body;
+        const id = params.id;
+        const data = params.data;
+        const result = await MatchService.updateOneMatchById(id, data);
+        ctx.response.body = { result };
     }
 }
 
