@@ -38,6 +38,8 @@ const MatchSchema = new mongoose.Schema({
         win     : Boolean,
     }],
     winner  : Number
+}, {
+    timestamps: true
 });
 
 const Match = mongoose.model("Match", MatchSchema);

@@ -10,6 +10,7 @@ router.get("/hello", Index.hello);
 
 router.get("/api/v1/player", Player.getAllPlayers);
 router.get("/api/v1/match", Match.getAllMatchs);
+router.get("/api/v1/match/:id", Match.getOneMatch);
 
 router.post("/api/v1/addmatch", Match.insertOneMatch);
 
