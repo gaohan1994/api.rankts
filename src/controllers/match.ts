@@ -21,21 +21,20 @@ class MatchController extends BaseControl {
         const id = ctx.params.id;
         const result = await MatchService.findOneMatch(id);
         ctx.response.body = { res: result };
-    }
+    };
 
     /**
      * insertOneMatch
      */
     public insertOneMatch = async(ctx: Context, next: any): Promise<void> => {
         const data = ctx.request.body;
-        console.log("data", data);
         const result = await MatchService.insertOneMatch(data);
         if (result) {
             ctx.response.body = {code: "insertSuccess", res: result};
         } else {
             ctx.response.body = {code: "insertFail"};
         }
-    }
+    };
 
     /**
      * deleteOneMatch
@@ -48,7 +47,7 @@ class MatchController extends BaseControl {
         } else {
             ctx.response.body = {code: "deleteFail"};
         }
-    }
+    };
 
     /**
      * updateMatchById
@@ -59,7 +58,7 @@ class MatchController extends BaseControl {
         const data = params.data;
         const result = await MatchService.updateOneMatchById(id, data);
         ctx.response.body = { result };
-    }
+    };
 }
 
 export default new MatchController();

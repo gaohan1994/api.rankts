@@ -15,7 +15,7 @@ class MatchService extends BaseServive {
     /**
      * findOneMatch
      */
-    public findOneMatch = async (id: string): Promise<Object> => {
+    public findOneMatch = async (id: string): Promise<object> => {
         const match = await Match.find({_id: id});
         return match;
     }

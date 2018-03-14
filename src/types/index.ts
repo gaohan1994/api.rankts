@@ -1,3 +1,14 @@
+import {
+    graphql,
+    GraphQLSchema,
+    GraphQLObjectType,
+    GraphQLString,
+    GraphQLID,
+    GraphQLList,
+    GraphQLNonNull,
+    GraphQLInt,
+} from "graphql";
+
 export type base = {
     test: () => void;
 };
@@ -48,3 +59,22 @@ export type MatchType = {
     players : Array<PlayerType>,
     winner  : number
 };
+
+export const graphqlPlayerType = new GraphQLObjectType({
+    name: "Player",
+    fields: {
+        _id: { type: GraphQLString },
+        name: { type: GraphQLString },
+        class: { type: GraphQLInt },
+    }
+});
+
+export const graphqlMatchType = new GraphQLObjectType({
+    name: "Match",
+    fields: {
+        _id: { type: GraphQLString },
+        date: { type: GraphQLString },
+        players: { type:  new GraphQLList(graphqlPlayerType) },
+        winner: { type: GraphQLInt },
+    }
+});
