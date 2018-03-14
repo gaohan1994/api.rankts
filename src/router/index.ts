@@ -3,6 +3,8 @@ import { graphiqlKoa, graphqlKoa } from "graphql-server-koa";
 import Index from "../controllers/index";
 import Player from "../controllers/player";
 import Match from "../controllers/match";
+import { Context } from "koa";
+import schema from "../graphql/index";
 
 const router = new Router();
 
@@ -17,8 +19,16 @@ router.post("/api/v1/addmatch", Match.insertOneMatch);
 
 router.post("/api/v1/updatematch", Match.updateMatchById);
 
-router.get("/graphiql", async (ctx, next) => {
-    await graphiqlKoa({endpointURL: "/graphql"});
-});
+
+router
+    .post("/api/v1/graphql", async (ctx: Context, next: any): Promise<void> => {
+        await graphqlKoa({schema: schema})(ctx, next); // 使用schema
+    })
+    .get("/api/v1/graphql", async (ctx: Context, next: any): Promise<void> => {
+        await graphqlKoa({schema: schema})(ctx, next); // 使用schema
+    })
+    .get("/api/v1/graphiql", async (ctx: Context, next: any): Promise<void> => {
+        await graphiqlKoa({endpointURL: "/api/v1/graphql"})(ctx); // 重定向到graphiql路由
+    });
 
 export default router;

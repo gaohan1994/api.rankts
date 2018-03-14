@@ -44,7 +44,7 @@ export type PlayerType = {
  */
 
 export type MatchType = {
-    date    : Date,
+    date    : any,
     players : Array<PlayerType>,
     winner  : number
 };
