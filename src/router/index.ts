@@ -19,9 +19,11 @@ router.post("/api/v1/updatematch", Match.updateMatchById);
 
 router
     .post("/api/v1/graphql", async (ctx: Context, next: any): Promise<void> => {
+        console.log("get graphql");
         await graphqlKoa({schema: schema})(ctx, next); // 使用schema
     })
     .get("/api/v1/graphql", async (ctx: Context, next: any): Promise<void> => {
+        console.log("post graphql");
         await graphqlKoa({schema: schema})(ctx, next); // 使用schema
     })
     .get("/api/v1/graphiql", async (ctx: Context, next: any): Promise<void> => {

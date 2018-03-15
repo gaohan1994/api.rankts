@@ -27,6 +27,7 @@
     "koa": "^2.5.0",
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.4.0",
+    "koa2-cors": "^2.0.5",
     "mongodb": "^3.0.4",
     "mongoose": "^5.0.9",
     "typescript": "^2.7.2"
@@ -37,6 +38,7 @@
     "@types/koa": "^2.0.44",
     "@types/koa-bodyparser": "^4.2.0",
     "@types/koa-router": "^7.0.27",
+    "@types/koa2-cors": "^2.0.1",
     "@types/mocha": "^2.2.48",
     "@types/mongodb": "^3.0.7",
     "@types/mongoose": "^5.0.7",

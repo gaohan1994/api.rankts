@@ -4,8 +4,11 @@ import routes from "./src/router/index";
 import * as mongoose from "mongoose";
 import config from "./src/config/db";
 import { Context } from "koa";
+import * as cors from "koa2-cors";
 
 const app = new Koa();
+
+app.use(cors());
 
 mongoose.connect(config.DB.mongo.uri);
 
