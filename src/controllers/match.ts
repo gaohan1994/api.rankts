@@ -19,8 +19,8 @@ class MatchController extends BaseControl {
      */
     public getOneMatchById = async (ctx: Context, next: any): Promise<void> => {
         const id = ctx.params.id;
-        const result = await MatchService.findOneMatch(id);
-        ctx.response.body = { res: result };
+        const result = await MatchService.findMatchById(id);
+        ctx.response.body = result;
     };
 
     /**
@@ -29,11 +29,7 @@ class MatchController extends BaseControl {
     public insertOneMatch = async(ctx: Context, next: any): Promise<void> => {
         const data = ctx.request.body;
         const result = await MatchService.insertOneMatch(data);
-        if (result) {
-            ctx.response.body = {code: "insertSuccess", res: result};
-        } else {
-            ctx.response.body = {code: "insertFail"};
-        }
+        ctx.response.body = result;
     };
 
     /**
@@ -41,23 +37,18 @@ class MatchController extends BaseControl {
      */
     public deleteOneMatchById = async(ctx: Context, next: any): Promise<void> => {
         const id = ctx.params.id;
-        const result = await MatchService.deleteOneMatch(id);
-        if (result) {
-            ctx.response.body = {code: "deleteSuccess", res: result};
-        } else {
-            ctx.response.body = {code: "deleteFail"};
-        }
+        const result = await MatchService.deleteMatchById(id);
+        ctx.response.body = result;
     };
 
     /**
-     * updateMatchById
+     * updateMatch
      */
-    public updateMatchById = async(ctx: Context, next: any): Promise<void> => {
+    public updateMatch = async(ctx: Context, next: any): Promise<void> => {
         const params = ctx.request.body;
-        const id = params.id;
         const data = params.data;
-        const result = await MatchService.updateOneMatchById(id, data);
-        ctx.response.body = { result };
+        const result = await MatchService.updateMatch(data);
+        ctx.response.body = result;
     };
 }
 

@@ -55,6 +55,7 @@ export type PlayerType = {
  */
 
 export type MatchType = {
+    _id     : string;
     date    : any,
     players : Array<PlayerType>,
     winner  : number
@@ -63,18 +64,38 @@ export type MatchType = {
 export const graphqlPlayerType = new GraphQLObjectType({
     name: "Player",
     fields: {
-        _id: { type: GraphQLString },
-        name: { type: GraphQLString },
-        class: { type: GraphQLInt },
+        _id     : { type: GraphQLString },
+        name    : { type: GraphQLString },
+        class   : { type: GraphQLInt },
     }
 });
 
 export const graphqlMatchType = new GraphQLObjectType({
     name: "Match",
     fields: {
-        _id: { type: GraphQLString },
-        date: { type: GraphQLString },
-        players: { type:  new GraphQLList(graphqlPlayerType) },
-        winner: { type: GraphQLInt },
+        _id     : { type: GraphQLString },
+        date    : { type: GraphQLString },
+        players : { type:  new GraphQLList(graphqlPlayerType) },
+        winner  : { type: GraphQLInt },
+    }
+});
+
+export const graphqlRankType = new GraphQLObjectType({
+    name: "Rank",
+    fields: {
+        month: { type: GraphQLString },
+        players: {
+            type: new GraphQLList(
+                new GraphQLObjectType({
+                    name: "player",
+                    fields: {
+                        _id     : { type: GraphQLString },
+                        name    : { type: GraphQLString },
+                        class   : { type: GraphQLInt },
+                        rank    : { type: GraphQLInt },
+                    }
+                })
+            )
+        }
     }
 });

@@ -5,6 +5,7 @@ import {
 } from "graphql";
 
 import { match, matches } from "./match";
+import { rank } from "./rank";
 
 export default new GraphQLSchema({
     query: new GraphQLObjectType({
@@ -12,6 +13,7 @@ export default new GraphQLSchema({
         fields: {
             match,
             matches,
+            rank,
         }
     })
 });

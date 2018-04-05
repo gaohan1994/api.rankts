@@ -9,21 +9,21 @@ const router = new Router();
 
 router.get("/api/v1/player", Player.getAllPlayers);
 
-router.get("/api/v1/match", Match.getAllMatchs);
+router.get("/api/v1/matches", Match.getAllMatchs);
 
 router.get("/api/v1/match/:id", Match.getOneMatchById);
 
 router.post("/api/v1/addmatch", Match.insertOneMatch);
 
-router.post("/api/v1/updatematch", Match.updateMatchById);
+router.post("/api/v1/updatematch", Match.updateMatch);
+
+router.post("/api/v1/deletematch/:id", Match.deleteOneMatchById);
 
 router
     .post("/api/v1/graphql", async (ctx: Context, next: any): Promise<void> => {
-        console.log("get graphql");
         await graphqlKoa({schema: schema})(ctx, next); // 使用schema
     })
     .get("/api/v1/graphql", async (ctx: Context, next: any): Promise<void> => {
-        console.log("post graphql");
         await graphqlKoa({schema: schema})(ctx, next); // 使用schema
     })
     .get("/api/v1/graphiql", async (ctx: Context, next: any): Promise<void> => {
