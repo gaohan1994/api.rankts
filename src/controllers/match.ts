@@ -45,8 +45,7 @@ class MatchController extends BaseControl {
      * updateMatch
      */
     public updateMatch = async(ctx: Context, next: any): Promise<void> => {
-        const params = ctx.request.body;
-        const data = params.data;
+        const data = ctx.request.body;
         const result = await MatchService.updateMatch(data);
         ctx.response.body = result;
     };

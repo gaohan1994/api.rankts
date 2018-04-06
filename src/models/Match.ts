@@ -33,6 +33,7 @@ import * as mongoose from "mongoose";
 const MatchSchema = new mongoose.Schema({
     date    : Date,
     players : [{
+        user    : mongoose.Schema.Types.ObjectId,
         name    : String,
         class   : Number,
         win     : Boolean,

@@ -7,7 +7,9 @@ import schema from "../graphql/index";
 
 const router = new Router();
 
-router.get("/api/v1/player", Player.getAllPlayers);
+router.get("/api/v1/players", Player.getAllPlayers);
+
+router.get("/api/v1/player/:name", Player.getPlayerByName);
 
 router.get("/api/v1/matches", Match.getAllMatchs);
 
