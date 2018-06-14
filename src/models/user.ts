@@ -5,6 +5,7 @@ import * as mongoose from "mongoose";
      win    : Number,
      lose   : Number,
      desc   : String,
+     titles : [String],
  }, {
     timestamps: true
 });

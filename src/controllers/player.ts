@@ -1,7 +1,6 @@
 import { Context } from "koa";
 import Base from "../base";
 import { index } from "../types/index";
-import { } from "../models";
 import PlayerService from "../service/player";
 
 class Player extends Base {

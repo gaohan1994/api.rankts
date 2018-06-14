@@ -26,8 +26,8 @@ app
     .use(routes.routes())
     .use(routes.allowedMethods());
 
-app.listen(3000);
+app.listen(1234);
 
-console.log("server run at port 3000");
+console.log("server run at port 1234");
 
 export default app;

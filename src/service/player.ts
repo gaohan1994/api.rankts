@@ -5,8 +5,8 @@ class Player extends Base {
 
     constructor () {
         super();
-        this.getAllPlayers = this.getAllPlayers.bind(this);
-        this.findPlayerByName = this.findPlayerByName.bind(this);
+        this.getAllPlayers      = this.getAllPlayers.bind(this);
+        this.findPlayerByName   = this.findPlayerByName.bind(this);
     }
 
     public getAllPlayers = async (): Promise<object> => {

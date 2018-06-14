@@ -4,10 +4,17 @@
  * @memberof BaseClass
  */
 
+export interface NormalReturnObject {
+    success ?: boolean;
+    type    ?: string;
+    message ?: string;
+    result  ?: any;
+}
+
 class BaseClass {
 
     constructor () {}
-
+    
     public test = () => {
         console.log("hello");
     }
